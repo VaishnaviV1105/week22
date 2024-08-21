@@ -27,5 +27,6 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
-          kubectl set image deployment/git-build git-build=week22
-          kubectl rollout status deployment/my-app
+          kubectl apply -f deployment.yml
+          kubectl get deployment
+          kubectl get pod
