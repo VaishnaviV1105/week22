@@ -27,6 +27,5 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
-          kubectl apply -f .github/workflows/deployment.yml
           kubectl get deployment
           kubectl get pod
