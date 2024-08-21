@@ -27,5 +27,6 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
+          kubectl config use-context docker-desktop
           kubectl set image deployment/my-app my-app=ghcr.io/vaishnaviv1105/week22:latest
           kubectl rollout status deployment/my-app
