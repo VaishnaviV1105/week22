@@ -1,0 +1,31 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build and push the image
+        run: |
+          docker login --username ${{secrets.DOCKERHUB_USERNAME }} --password ${{secrets.DOCKERHUB_TOKEN }} ghcr.io
+          docker build . -t ghcr.io/vaishnaviv1105/week22:latest
+          docker push ghcr.io/vaishnaviv1105/week22:latest
+          docker run -d --name week-22 -p 8080:80 ghcr.io/vaishnaviv1105/week22:latest
+
+          
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Kubernetes
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          kubectl set image deployment/git-build git-build=week22
+          kubectl rollout status deployment/my-app
