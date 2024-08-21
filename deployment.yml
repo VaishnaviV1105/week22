@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ingress
+    spec:
+      containers:
+      - name: week-22
+        image: ghcr.io/vaishnaviv1105/week22:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+  selector:
+    matchLabels:
+      app: ingress
