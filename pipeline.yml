@@ -15,7 +15,7 @@ jobs:
           docker login --username ${{secrets.DOCKERHUB_USERNAME }} --password ${{secrets.DOCKERHUB_TOKEN }} ghcr.io
           docker build . -t ghcr.io/vaishnaviv1105/week22:latest
           docker push ghcr.io/vaishnaviv1105/week22:latest
-          docker run -d  --name week22 -p 8080:80 ghcr.io/vaishnaviv1105/week22
+
           
 
   deploy:
