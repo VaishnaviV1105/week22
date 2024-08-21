@@ -10,17 +10,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Set Up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Log in to DockerHub
-        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
-      - name: Build Docker Image
-        run: docker build -t my-app:${{ github.sha }} .
-
-      - name: Push Docker Image
-        run: docker push my-app:${{ github.sha }}
+      - name: Build and push the image
+        run: |
+          docker login --username ${{secrets.DOCKERHUB_USERNAME }} --password ${{secrets.DOCKERHUB_TOKEN }} ghcr.io
+          docker build . -t ghcr.io/vaishnaviv1105/week22:latest
+          docker push ghcr.io/vaishnaviv1105/week22:latest
+          
 
   deploy:
     needs: build
@@ -30,5 +25,5 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
-          kubectl set image deployment/my-app my-app=my-app:${{ github.sha }}
+          kubectl set image deployment/git-build git-build=week22
           kubectl rollout status deployment/my-app
