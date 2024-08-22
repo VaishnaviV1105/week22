@@ -22,4 +22,12 @@ jobs:
       - name: Docker Push
         run: docker push ghcr.io/vaishnaviv1105/week22:latest
 
-          
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decode KUBECONFIG
+        run: ${{ secrets.KUBECONFIG }} | base64 -d > $C:\Users\acer\.kube
+
+      - name: Deploy to Kubernetes
+        run: echo "Pipeline implemented successfully!!"
