@@ -25,6 +25,6 @@ jobs:
     steps:
       - name: Deploy to Kubernetes
         env:
-          KUBECONFIG: echo "${{ secrets.KUBECONFIG}}" | base64 -d > $HOME/.kube/config
+          KUBECONFIG: "${{ secrets.KUBECONFIG}}"
         run: |
           kubectl config get-contexts
