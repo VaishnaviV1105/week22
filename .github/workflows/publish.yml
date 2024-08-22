@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Decode KUBECONFIG
-        run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+        run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $DESKTOP-S26O8A8/.kube/config
 
       - name: Deploy to Kubernetes
         run: |
