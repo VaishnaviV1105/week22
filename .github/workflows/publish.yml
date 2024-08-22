@@ -27,4 +27,4 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
-          kubectl config get-context
+          kubectl config get-contexts
