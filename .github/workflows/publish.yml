@@ -24,21 +24,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Kubernetes
-        env:
-          KUBECONFIG: "YXBpVmVyc2lvbjogdjEKY2x1c3RlcnM6Ci0gY2x1c3RlcjoKICAgIGNlcnRpZmljYXRlLWF1dGhv
-cml0eS1kYXRhOiBEQVRBK09NSVRURUQKICAgIHNlcnZlcjogaHR0cHM6Ly9rdWJlcm5ldGVzLmRv
-Y2tlci5pbnRlcm5hbDo2NDQzCiAgbmFtZTogZG9ja2VyLWRlc2t0b3AKY29udGV4dHM6Ci0gY29u
-dGV4dDoKICAgIGNsdXN0ZXI6IGRvY2tlci1kZXNrdG9wCiAgICBuYW1lc3BhY2U6IGRlZmF1bHQK
-ICAgIHVzZXI6IGRvY2tlci1kZXNrdG9wCiAgbmFtZTogZGVmYXVsdAotIGNvbnRleHQ6CiAgICBj
-bHVzdGVyOiBkb2NrZXItZGVza3RvcAogICAgdXNlcjogZG9ja2VyLWRlc2t0b3AKICBuYW1lOiBk
-b2NrZXItZGVza3RvcApjdXJyZW50LWNvbnRleHQ6IGRlZmF1bHQKa2luZDogQ29uZmlnCnByZWZl
-cmVuY2VzOiB7fQp1c2VyczoKLSBuYW1lOiBkb2NrZXItZGVza3RvcAogIHVzZXI6CiAgICBjbGll
-bnQtY2VydGlmaWNhdGUtZGF0YTogREFUQStPTUlUVEVECiAgICBjbGllbnQta2V5LWRhdGE6IERB
-VEErT01JVFRFRAotIG5hbWU6IGtpbmQta2luZAogIHVzZXI6CiAgICBjbGllbnQtY2VydGlmaWNh
-dGUtZGF0YTogREFUQStPTUlUVEVECiAgICBjbGllbnQta2V5LWRhdGE6IERBVEErT01JVFRFRAot
-IG5hbWU6IG1pbmlrdWJlCiAgdXNlcjoKICAgIGNsaWVudC1jZXJ0aWZpY2F0ZTogQzpcVXNlcnNc
-YWNlclwubWluaWt1YmVccHJvZmlsZXNcbWluaWt1YmVcY2xpZW50LmNydAogICAgY2xpZW50LWtl
-eTogQzpcVXNlcnNcYWNlclwubWluaWt1YmVccHJvZmlsZXNcbWluaWt1YmVcY2xpZW50LmtleQo=
-"
         run: |
           kubectl config get-contexts
