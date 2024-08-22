@@ -16,9 +16,10 @@ jobs:
       - name: Docker build
         run: docker build . -t ghcr.io/vaishnaviv1105/week22:latest
 
+      - name: Docker Run
+        run: docker run -d --name week-22 -p 8080:80 ghcr.io/vaishnaviv1105/week22:latest
+
       - name: Docker Push
         run: docker push ghcr.io/vaishnaviv1105/week22:latest
 
-      - name: Docker Run
-        run: docker run -d --name week-22 -p 8080:80 ghcr.io/vaishnaviv1105/week22:latest
           
