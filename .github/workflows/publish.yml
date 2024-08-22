@@ -24,5 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Kubernetes
+        run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+
+      - name: Deploy to Kubernetes
         run: |
           kubectl config get-contexts
