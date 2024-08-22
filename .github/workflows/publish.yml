@@ -26,6 +26,4 @@ jobs:
       - name: Decode KUBECONFIG
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
-
-      - name: Deploy to Kubernetes
         run: kubectl config get-contexts
