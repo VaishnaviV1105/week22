@@ -24,8 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Decode KUBECONFIG
-        run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $C:\Users\acer\.kube
+        run: ${{ secrets.KUBECONFIG }}
 
       - name: Deploy to Kubernetes
-        run: |
-          kubectl config get-contexts
+        run: kubectl config get-contexts
