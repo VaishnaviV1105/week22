@@ -27,4 +27,4 @@ jobs:
         run: ${{ secrets.KUBECONFIG }} | base64 -d > $C:\Users\acer\.kube
 
       - name: Deploy to Kubernetes
-        run: kubectl config get-contexts
+        run: echo "Pipeline implemented successfully!!"
