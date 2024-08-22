@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ingress-app
+  name: cicd-app
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        app: ingress
+        app: cicd
     spec:
       containers:
       - name: week-22
@@ -17,4 +17,4 @@ spec:
         - containerPort: 8080
   selector:
     matchLabels:
-      app: ingress
+      app: cicd
