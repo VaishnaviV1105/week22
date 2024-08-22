@@ -25,6 +25,6 @@ jobs:
     steps:
       - name: Deploy to Kubernetes
         env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIG: "${{ secrets.KUBECONFIG }}"
         run: |
           kubectl config get-contexts
