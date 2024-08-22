@@ -16,3 +16,4 @@ jobs:
           docker build . -t ghcr.io/vaishnaviv1105/week22:latest
           docker push ghcr.io/vaishnaviv1105/week22:latest
           docker run -d --name week-22 -p 8080:80 ghcr.io/vaishnaviv1105/week22:latest
+          
